@@ -43,7 +43,7 @@ public class ControlVuelo {
     }
 
     public List<String[]> cargarRutas(String ruta) throws Exception {
-        return this.LectorArchivo.leer(ruta);
+        return this.LectorArchivo.leerArchivo(ruta);
     }
 
     /**

@@ -13,7 +13,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- * Esta clase contiene los métodos requeridos para leer el archivo.json que es
+ * Esta clase contiene los métodos requeridos para leerArchivo el archivo.json
+ * que es
  * enviada por parámetro
  */
 public class LectorArchivo {
@@ -23,17 +24,17 @@ public class LectorArchivo {
      * @param ruta
      * @return si existe, la lista, si no, null
      */
-    public List<String[]> leer(String ruta) {
+    public List<String[]> leerArchivo(String ruta) {
 
         try {
             List<String[]> rutas = new ArrayList<>();
-            JSONParser parser = new JSONParser();
-            FileReader fileReader;
+            JSONParser jparser = new JSONParser();
+            FileReader fReader;
 
             File file = new File(ruta);
-            fileReader = new FileReader(file);
+            fReader = new FileReader(file);
 
-            JSONArray array = (JSONArray) parser.parse(fileReader);
+            JSONArray array = (JSONArray) jparser.parse(fReader);
 
             for (int i = 0; i < array.size(); i++) {
                 JSONObject obj = (JSONObject) array.get(i);
