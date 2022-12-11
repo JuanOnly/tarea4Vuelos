@@ -1,0 +1,62 @@
+[
+    {
+        "origen": "manizales",
+        "destino": "medellin",
+        "duracionTotal": 1.0,
+        "precioTotal": 95000.0
+    },
+    {
+        "origen": "medellin",
+        "destino": "cartagena",
+        "duracionTotal": 4.0,
+        "precioTotal": 220000.0
+    },
+    {
+        "origen": "manizales",
+        "destino": "bogota",
+        "duracionTotal": 1.3,
+        "precioTotal": 80000.0
+    },
+    {
+        "origen": "manizales",
+        "destino": "bogota",
+        "duracionTotal": 2.0,
+        "precioTotal": 100000.0
+    },
+    {
+        "origen": "bogota",
+        "destino": "cartagena",
+        "duracionTotal": 11.5,
+        "precioTotal": 185000.0
+    },
+    {
+        "origen": "armenia",
+        "destino": "quibdo",
+        "duracionTotal": 10.0,
+        "precioTotal": 70000.0
+    },
+    {
+        "origen": "bogota",
+        "destino": "cali",
+        "duracionTotal": 5.0,
+        "precioTotal": 75000.0
+    },
+    {
+        "origen": "armenia",
+        "destino": "bogota",
+        "duracionTotal": 6.0,
+        "precioTotal": 65000.0
+    },
+    {
+        "origen": "amazonas",
+        "destino": "meta",
+        "duracionTotal": 9.0,
+        "precioTotal": 120000.0
+    },
+    {
+        "origen": "meta",
+        "destino": "rionegro",
+        "duracionTotal": 1.0,
+        "precioTotal": 80000.0
+    }
+]
