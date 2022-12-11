@@ -97,4 +97,31 @@ public class ControlTest {
                 assertThrows(VueloNotFoundException.class,
                                 () -> control.mostrarVuelos(origen, destino, rutas));
         }
+
+        @Test
+        void testValidarVueloExiste() throws Exception {
+
+                ControlVuelo control = new ControlVuelo();
+                List<String[]> rutas = control.cargarRutas(
+                                "C:/Users/ASUS/Documents/Juan/Ingeneria de Sistemas/22-2/Ingenieria de Software/thirdQuarter/tarea4Final/tarea4_Vuelos/lib/src/JSON/Rutas.json");
+
+                String origen = "manizales";
+                String destino = "medellin";
+
+                assertTrue(origen, vuelos.get(0).getOrigen())
+        }
+        
+        @Test
+        void testValidarVueloNoExiste() throws Exception {
+
+                ControlVuelo control = new ControlVuelo();
+                List<String[]> rutas = control.cargarRutas(
+                                "C:/Users/ASUS/Documents/Juan/Ingeneria de Sistemas/22-2/Ingenieria de Software/thirdQuarter/tarea4Final/tarea4_Vuelos/lib/src/JSON/Rutas.json");
+
+                String origen = "vichada";
+                String destino = "barrancabermeja";
+
+                assertThrows(VueloNotFoundException.class,
+                                () -> control.mostrarVuelos(origen, destino, rutas));
+        }
 }
