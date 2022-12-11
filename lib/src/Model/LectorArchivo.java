@@ -34,10 +34,10 @@ public class LectorArchivo {
             File file = new File(ruta);
             fReader = new FileReader(file);
 
-            JSONArray array = (JSONArray) jparser.parse(fReader);
+            JSONArray jarray = (JSONArray) jparser.parse(fReader);
 
-            for (int i = 0; i < array.size(); i++) {
-                JSONObject obj = (JSONObject) array.get(i);
+            for (int i = 0; i < jarray.size(); i++) {
+                JSONObject obj = (JSONObject) jarray.get(i);
                 parseJSONObject(obj, rutas);
             }
             return rutas;
@@ -52,13 +52,22 @@ public class LectorArchivo {
         return null;
     }
 
+    public String tipoArchivo(String ruta) {
+        String tipo = "";
+        int i = ruta.lastIndexOf('.');
+        if (i > 0) {
+            tipo = ruta.substring(i + 1).toLowerCase();
+        }
+        return tipo;
+    }
+
     /**
      * Método que organiza el archivo.json en una lista de strings llamada rutas
      * 
      * @param obj
      * @param rutas
      */
-    private static void parseJSONObject(JSONObject obj, List<String[]> rutas) {
+    public static void parseJSONObject(JSONObject obj, List<String[]> rutas) {
         String origen = (String) obj.get("origen");
         String destino = (String) obj.get("destino");
         double duracionTotal = (double) obj.get("duracionTotal");

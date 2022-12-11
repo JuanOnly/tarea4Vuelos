@@ -1,5 +1,6 @@
 package lib.src.Model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,12 +9,20 @@ import java.util.List;
  */
 public class ControlVuelo {
 
-    private LectorArchivo LectorArchivo;
+    private LectorArchivo lectorArchivo;
     private List<Vuelo> vuelos;
 
     public ControlVuelo() {
         vuelos = new ArrayList<>();
-        LectorArchivo = new LectorArchivo();
+        lectorArchivo = new LectorArchivo();
+    }
+
+    public List<Vuelo> getVuelos() {
+        return vuelos;
+    }
+
+    public void setVuelos(List<Vuelo> vuelos) {
+        this.vuelos = vuelos;
     }
 
     /**
@@ -42,8 +51,12 @@ public class ControlVuelo {
         return vuelos;
     }
 
-    public List<String[]> cargarRutas(String ruta) throws Exception {
-        return this.LectorArchivo.leerArchivo(ruta);
+    public List<String[]> cargarRutas(String ruta) throws IOException {
+        if (!this.lectorArchivo.tipoArchivo(ruta).equals("json")) {
+            throw new IOException("El tipo de archivo es incorrecto, se espera un archivo JSON");
+        }
+        ;
+        return this.lectorArchivo.leerArchivo(ruta);
     }
 
     /**
@@ -53,18 +66,19 @@ public class ControlVuelo {
      * @param destino ciudad a la cual llega el vuelo
      * @param rutas   ingresa las rutas en la lista
      * @return boolean, true cuando existe origen y destino, false cuando no.
-     * @throws VueloNotFoundException se lanza cuando hay error con la estructura
+     * @throws RutaInvalidaException  se lanza cuando hay error con la estructura
      *                                del json
+     * @throws VueloNotFoundException El vuelo no tiene ruto o no hay vuelos
+     *                                disponibles
      */
-    private boolean validarVuelo(String origen, String destino, List<String[]> rutas) throws VueloNotFoundException {
-
+    public boolean validarVuelo(String origen, String destino, List<String[]> rutas)
+            throws VueloNotFoundException, RutaInvalidaException {
         boolean existeDestino = false;
         boolean existeOrigen = false;
 
         for (String[] ruta : rutas) {
-
-            if (!esTipoJSON(ruta)) {
-                throw new VueloNotFoundException("hay un problema con el JSON");
+            if (!estructuraRutaJSON(ruta)) {
+                throw new RutaInvalidaException("hay un problema con el JSON");
             }
             if (origen.equals(ruta[0])) {
                 existeOrigen = true;
@@ -89,7 +103,7 @@ public class ControlVuelo {
      * @param destino
      * @param rutas
      */
-    private void adicionarVuelo(String origen, String destino, List<String[]> rutas) {
+    public void adicionarVuelo(String origen, String destino, List<String[]> rutas) {
 
         for (String[] ruta : rutas) {
             if (ruta[0].equals(origen) && ruta[1].equals(destino)) {
@@ -121,8 +135,7 @@ public class ControlVuelo {
      * @param tipo
      * @return true si cumple con la estructura basica del json; false si no
      */
-    private boolean esTipoJSON(String[] tipo) {
-
+    public boolean estructuraRutaJSON(String[] tipo) {
         if (tipo.length != 4) {
             return false;
         }

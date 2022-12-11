@@ -22,7 +22,6 @@ public class FronteraVuelo {
         System.out.println("Rutas disponibles de " + origen + " hasta " + destino);
         System.out.println("*************************************************");
         int nruta = 0;
-
         for (Vuelo vuelo : control.mostrarVuelos(origen, destino, control.cargarRutas("lib/src/JSON/Rutas.json"))) {
             nruta = nruta + 1;
             System.out.println(
