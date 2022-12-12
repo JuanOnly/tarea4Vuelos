@@ -72,7 +72,7 @@ public class ControlVuelo {
      *                                disponibles
      */
     public boolean validarVuelo(String origen, String destino, List<String[]> rutas)
-            throws VueloNotFoundException, RutaInvalidaException {
+            throws RutaInvalidaException {
         boolean existeDestino = false;
         boolean existeOrigen = false;
 

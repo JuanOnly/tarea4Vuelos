@@ -12,39 +12,39 @@
         "precioTotal": 220000.0
     },
     {
-        "origen": "manizales",
+        "origen": "Choco",
         "destino": "bogota",
         "duracionTotal": 1.3,
-        "precioTotal": 80000.0
+        "precioTotal": 83000.0
     },
     {
-        "origen": "manizales",
-        "destino": "bogota",
-        "duracionTotal": 2.0,
-        "precioTotal": 100000.0
+        "origen": "El Dorado",
+        "destino": "Neira",
+        "duracionTotal": 2.2,
+        "precioTotal": 340000.0
     },
     {
         "origen": "bogota",
-        "destino": "cartagena",
-        "duracionTotal": 11.5,
-        "precioTotal": 185000.0
+        "destino": "quibdo",
+        "duracionTotal": 15.0,
+        "precioTotal": 145000.0
     },
     {
         "origen": "armenia",
         "destino": "quibdo",
-        "duracionTotal": 10.0,
-        "precioTotal": 70000.0
+        "duracionTotal": 16.0,
+        "precioTotal": 80000.0
     },
     {
         "origen": "bogota",
         "destino": "cali",
         "duracionTotal": 5.0,
-        "precioTotal": 75000.0
+        "precioTotal": 11000.0
     },
     {
         "origen": "armenia",
         "destino": "bogota",
-        "duracionTotal": 6.0,
+        "duracionTotal": 6.6,
         "precioTotal": 65000.0
     },
     {
@@ -56,7 +56,7 @@
     {
         "origen": "meta",
         "destino": "rionegro",
-        "duracionTotal": 1.0,
+        "duracionTotal": 1.1,
         "precioTotal": 80000.0
     }
 ]
